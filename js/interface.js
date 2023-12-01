@@ -18,22 +18,22 @@ Fliplet.Widget.generateInterface({
       name: 'action',
       type: 'provider',
       label: 'Choose an action to do when the button is pressed',
-      package: 'com.fliplet.link',
+      package: 'com.fliplet.link'
       // mode: 'full-screen',
       // html: '<button data-open-provider>Configure</button> You selected  files',
-      ready: function(el, value, provider) {
-        // Link provider is rendered
-        console.log('el', el);
-        console.log('value', value);
-        console.log('provider', provider);
-        debugger;
-      },
-      onEvent: function(eventName, data) {
-        // Listen for events fired from the provider
-        console.log('eventName', eventName);
-        console.log('data', data);
-        debugger;
-      }
+      // ready: function(el, value, provider) {
+      //   // Link provider is rendered
+      //   console.log('el', el);
+      //   console.log('value', value);
+      //   console.log('provider', provider);
+      //   debugger;
+      // },
+      // onEvent: function(eventName, data) {
+      //   // Listen for events fired from the provider
+      //   console.log('eventName', eventName);
+      //   console.log('data', data);
+      //   debugger;
+      // }
     }
   ]
 });
