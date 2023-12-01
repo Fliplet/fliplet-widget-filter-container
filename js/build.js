@@ -2,9 +2,6 @@
 Fliplet.Widget.instance({
   name: 'filter-container',
   displayName: 'Filter container',
-  data: {
-    dataSourceId: null
-  },
   template: `<div data-view="content">
               <p class="list-from-data-source">List from data source name (ID: <span class="data-source-id"></span></p>
               <p class="info-text">To change Data source go to Data Container Settings</p>
@@ -12,6 +9,15 @@ Fliplet.Widget.instance({
   render: {
     ready: function() {
       let filterContainer = this;
+
+      filterContainer.fields = _.assign(
+        {
+          isListOnDifferentScreen: [true]
+          // action: undefined
+        },
+        filterContainer.fields
+      );
+
       let $filterContainer = $(filterContainer);
       let isListOnDifferentScreen = filterContainer.fields.isListOnDifferentScreen;
       let screenAction = filterContainer.fields.action;
