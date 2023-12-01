@@ -21,7 +21,7 @@ Fliplet.Widget.instance({
       Fliplet.Widget.initializeChildren(filterContainer.$el, filterContainer);
 
       if (!Fliplet.FormBuilder) {
-        Fliplet.UI.Message('Please add a form component');
+        Fliplet.UI.Toast('Please add a form component');
 
         return Promise.reject('');
       }
@@ -29,7 +29,7 @@ Fliplet.Widget.instance({
       // data source id from Data Container
       if (!isListOnDifferentScreen) {
         if (!Fliplet.DynamicContainer) {
-          Fliplet.UI.Message('Please add a Dynamic list component and List repeater inside it');
+          Fliplet.UI.Toast('Please add a Dynamic list component and List repeater inside it');
 
           return Promise.reject('');
         }
