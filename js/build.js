@@ -2,18 +2,15 @@
 Fliplet.Widget.instance({
   name: 'filter-container',
   displayName: 'Filter container',
-  template: `<div data-view="content">
-              <p class="list-from-data-source">List from data source name (ID: <span class="data-source-id"></span></p>
-              <p class="info-text">To change Data source go to Data Container Settings</p>
-            </div>`,
+  template: '<div data-view="content"></div>',
   render: {
     ready: function() {
       let filterContainer = this;
 
       filterContainer.fields = _.assign(
         {
-          isListOnDifferentScreen: [true]
-          // action: undefined
+          isListOnDifferentScreen: [true],
+          action: { action: 'screen' }
         },
         filterContainer.fields
       );
@@ -32,7 +29,6 @@ Fliplet.Widget.instance({
         return Promise.reject('');
       }
 
-      // data source id from Data Container
       if (!isListOnDifferentScreen) {
         if (!Fliplet.DynamicContainer) {
           Fliplet.UI.Toast('Please add a Dynamic list component and List repeater inside it');
@@ -40,8 +36,9 @@ Fliplet.Widget.instance({
           return Promise.reject('');
         }
 
-        Fliplet.DynamicContainer.get().then(function(container) {
-          container.connection().then(function(connection) {
+        Fliplet.DynamicContainer.get().then(container => {
+          container.connection().then(connection => {
+            // data source id from Data Container
             $filterContainer.find('.data-source-id').html(connection.id);
           });
         });
@@ -60,7 +57,6 @@ Fliplet.Widget.instance({
 
         return Fliplet.FormBuilder.get().then(function(form) {
           form.instance.fields.forEach(function(field) {
-            // field is an object with "type", "name" and "value"
             if (!field.value) return;
 
             switch (field._type) {
