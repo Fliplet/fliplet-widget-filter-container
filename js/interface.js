@@ -20,7 +20,7 @@ Fliplet.Widget.generateInterface({
       label: 'Choose an action to do when the button is pressed',
       package: 'com.fliplet.link',
       mode: 'full-screen',
-      html: '<button data-open-provider>Configure</button> You selected  files',
+      // html: '<button data-open-provider>Configure</button> You selected  files',
       ready: function(el, value, provider) {
         // Link provider is rendered
         console.log('el', el);
