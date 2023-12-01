@@ -11,7 +11,7 @@ Fliplet.Widget.generateInterface({
       default: [],
       change: function(value) {
         Fliplet.Helper.field('action')
-          .toggle(value.includes(true));
+          .toggle(!value.includes(true));
       }
     },
     {

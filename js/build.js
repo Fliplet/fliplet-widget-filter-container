@@ -91,13 +91,12 @@ Fliplet.Widget.instance({
             }
           });
 
-          debugger;
-          lfdPage = isListOnDifferentScreen ? screenAction : Fliplet.Env.get('pageId'); // todo read screen name from screenAction
+          lfdPage = isListOnDifferentScreen ? screenAction : Fliplet.Env.get('pageId');
 
           Fliplet.App.Storage.set(lfdPage, where);
 
           if (isListOnDifferentScreen) {
-            Fliplet.Navigate.screen(lfdPage, { query: '?filtersApplied=true' });
+            Fliplet.Navigate.screen(lfdPage.page, { query: lfdPage.query || '', transition: lfdPage.transition || 'fade' });
 
             return Promise.reject('');
           }
