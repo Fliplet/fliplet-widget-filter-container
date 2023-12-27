@@ -97,7 +97,7 @@ Fliplet.Widget.instance({
 
 
           if (isListOnDifferentScreen) {
-            Fliplet.Navigate.screen(lfdPage.page, { query: lfdPage.query || '', transition: lfdPage.transition || 'fade' });
+            Fliplet.Navigate.screen(lfdPage.page, { query: lfdPage.query || '', transition: lfdPage.transition || 'fade', filtersApplied: true });
           }
 
           // TODO check if we are updating list repeater from here
