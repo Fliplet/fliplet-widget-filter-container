@@ -16,7 +16,7 @@ Fliplet.Widget.instance({
       );
 
       let $filterContainer = $(filterContainer);
-      let isListOnDifferentScreen = filterContainer.fields.isListOnDifferentScreen;
+      let isListOnDifferentScreen = filterContainer.fields.isListOnDifferentScreen.includes(true);
       let screenAction = filterContainer.fields.action;
       let lfdPage;
 
@@ -103,5 +103,12 @@ Fliplet.Widget.instance({
         });
       });
     }
-  }
+  },
+  views: [
+    {
+      name: 'content',
+      displayName: 'Filter content',
+      placeholder: '<div class="well text-center">Add form component to build your filters</div>'
+    }
+  ]
 });
