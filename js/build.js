@@ -87,7 +87,7 @@ Fliplet.Widget.instance({
             }
           });
 
-          lfdPage = isListOnDifferentScreen ? screenAction : Fliplet.Env.get('pageId');
+          lfdPage = isListOnDifferentScreen ? screenAction.page : Fliplet.Env.get('pageId');
 
           Fliplet.App.Storage.set(lfdPage, where);
 
