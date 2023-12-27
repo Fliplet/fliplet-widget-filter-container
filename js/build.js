@@ -20,7 +20,6 @@ Fliplet.Widget.instance({
       let screenAction = filterContainer.fields.action;
       let lfdPage;
 
-      debugger
       // Initialize children components when this widget is ready
       await Fliplet.Widget.initializeChildren(filterContainer.$el, filterContainer);
 
