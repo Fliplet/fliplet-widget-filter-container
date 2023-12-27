@@ -90,14 +90,13 @@ Fliplet.Widget.instance({
           if (isListOnDifferentScreen) {
             lfdPage = screenAction;
             Fliplet.App.Storage.set(lfdPage.page, where);
+
+            let query = `${lfdPage.query || ''}&filtersApplied=true`;
+
+            Fliplet.Navigate.screen(lfdPage.page, { query, transition: lfdPage.transition || 'fade' });
           } else {
             lfdPage = Fliplet.Env.get('pageId');
             Fliplet.App.Storage.set(lfdPage, where);
-          }
-
-
-          if (isListOnDifferentScreen) {
-            Fliplet.Navigate.screen(lfdPage.page, { query: lfdPage.query || '', transition: lfdPage.transition || 'fade', filtersApplied: true });
           }
 
           // TODO check if we are updating list repeater from here
