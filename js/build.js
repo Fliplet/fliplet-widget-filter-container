@@ -4,7 +4,7 @@ Fliplet.Widget.instance({
   displayName: 'Filter container',
   template: '<div data-view="content"></div>',
   render: {
-    ready: function() {
+    ready: async function() {
       let filterContainer = this;
 
       filterContainer.fields = _.assign(
@@ -20,8 +20,9 @@ Fliplet.Widget.instance({
       let screenAction = filterContainer.fields.action;
       let lfdPage;
 
+      debugger
       // Initialize children components when this widget is ready
-      Fliplet.Widget.initializeChildren(filterContainer.$el, filterContainer);
+      await Fliplet.Widget.initializeChildren(filterContainer.$el, filterContainer);
 
       if (!Fliplet.FormBuilder) {
         Fliplet.UI.Toast('Please add a form component');
