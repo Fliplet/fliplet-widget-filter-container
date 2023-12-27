@@ -91,7 +91,9 @@ Fliplet.Widget.instance({
             lfdPage = screenAction;
             Fliplet.App.Storage.set(lfdPage.page, where);
 
-            let query = `${lfdPage.query || ''}&filtersApplied=true`;
+            let query = lfdPage.query || '';
+
+            query += `${query ? '&' : '?'}filtersApplied=true`;
 
             Fliplet.Navigate.screen(lfdPage.page, { query, transition: lfdPage.transition || 'fade' });
           } else {
