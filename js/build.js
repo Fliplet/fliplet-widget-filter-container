@@ -1,11 +1,11 @@
-// Register this widget instance
 Fliplet.Widget.instance({
   name: 'filter-container',
   displayName: 'Filter container',
   template: '<div data-view="content"></div>',
   render: {
     ready: async function() {
-      let filterContainer = this;
+      const filterContainer = this;
+      const filterContainerInstanceId = filterContainer.id;
 
       filterContainer.fields = _.assign(
         {
@@ -15,8 +15,7 @@ Fliplet.Widget.instance({
         filterContainer.fields
       );
 
-      let $filterContainer = $(filterContainer);
-      let isListOnDifferentScreen = filterContainer.fields.isListOnDifferentScreen.includes(true);
+      const isListOnDifferentScreen = filterContainer.fields.isListOnDifferentScreen.includes(true);
       let screenAction = filterContainer.fields.action;
       let lfdPage;
 
@@ -27,36 +26,29 @@ Fliplet.Widget.instance({
         Fliplet.UI.Toast('Please add a form component');
 
         return Promise.reject('');
-      }
+      } else if (!isListOnDifferentScreen) {
+        Fliplet.Widget.findParents({ instanceId: filterContainerInstanceId }).then(widgets => {
+          let dynamicContainer = null;
 
-      if (!isListOnDifferentScreen) {
-        if (!Fliplet.DynamicContainer) {
-          Fliplet.UI.Toast('Please add a Dynamic list component and List repeater inside it');
-
-          return Promise.reject('');
-        }
-
-        Fliplet.DynamicContainer.get().then(container => {
-          container.connection().then(connection => {
-            // data source id from Data Container
-            $filterContainer.find('.data-source-id').html(connection.id);
+          widgets.forEach(widget => {
+            if (widget.package === 'com.fliplet.dynamic-container') {
+              dynamicContainer = widget;
+            }
           });
-        });
 
-        $filterContainer.find('.list-from-data-source').show();
-        $filterContainer.find('.info-text').html('To change Data source go to Data Container Settings');
-      } else {
-        $filterContainer.find('.list-from-data-source').hide();
-        $filterContainer.find('.info-text').html('To change Data source go to Data Container Settings on the LFD page');
-        // or
-        // $filterContainer.find('.data-source-id').html('TODO check how to read DS from different page');
+          if (!dynamicContainer || !dynamicContainer.dataSourceId) {
+            Fliplet.UI.Toast('Please add a Dynamic list component and a List repeater in it');
+
+            return Promise.reject('');
+          }
+        });
       }
 
-      Fliplet.Hooks.on('beforeFormSubmit', function() {
-        var where = {};
+      Fliplet.Hooks.on('beforeFormSubmit', () => {
+        let where = {};
 
-        return Fliplet.FormBuilder.get().then(function(form) {
-          form.instance.fields.forEach(function(field) {
+        return Fliplet.FormBuilder.get().then(form => {
+          form.instance.fields.forEach(field => {
             if (!field.value) return;
 
             switch (field._type) {
