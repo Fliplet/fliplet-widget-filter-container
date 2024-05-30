@@ -10,11 +10,11 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
     dataSourceObj = await Fliplet.DataSources.getById(dynamicContainer && dynamicContainer.dataSourceId, {
       attributes: ['name']
     }).then(dataSource => {
-      htmlToShow = `<p class="list-from-data-source">List from data source name ${dataSourceObj.name} (ID: <span>${dynamicContainer.dataSourceId}</span>)</p>
-      <p class="info-text">To change Data source go to Dynamic Container Settings</p>`;
-
       return dataSource;
     });
+
+    htmlToShow = `<p class="list-from-data-source">List from data source name ${dataSourceObj.name} (ID: <span>${dynamicContainer.dataSourceId}</span>)</p>
+    <p class="info-text">To change Data source go to Dynamic Container Settings</p>`;
   }
 
   return Fliplet.Widget.generateInterface({
