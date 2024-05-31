@@ -4,7 +4,7 @@ let dataSourceObj = null;
 
 Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' } }).then(async widgets => {
   if (widgets.length === 0) {
-    htmlToShow = '<p class="info-text">To change Data source go to Dynamic Container Settings on the LFD page</p>';
+    htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Dynamic Container Settings on the LFD page</p>';
   } else {
     dynamicContainer = widgets[0];
     dataSourceObj = await Fliplet.DataSources.getById(dynamicContainer && dynamicContainer.dataSourceId, {
@@ -13,8 +13,9 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
       return dataSource;
     });
 
-    htmlToShow = `<p class="list-from-data-source">List from data source name ${dataSourceObj.name} (ID: <span>${dynamicContainer.dataSourceId}</span>)</p>
-    <p class="info-text">To change Data source go to Dynamic Container Settings</p>`;
+    htmlToShow = `<p style="color: #A5A5A5; font-size: 12px; font-weight: 400;">List from ${dataSourceObj.name}(ID: <span class="data-source-id">${dynamicContainer.dataSourceId}</span>)</p>
+    <p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Data Container Settings</p>
+    <hr/>`;
   }
 
   return Fliplet.Widget.generateInterface({
