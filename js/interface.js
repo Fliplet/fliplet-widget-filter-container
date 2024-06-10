@@ -48,7 +48,7 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         onEvent: function(event, payload) {
           debugger;
         },
-        ready: function(, y) {
+        ready: function(x, y) {
           debugger
         }
       }
