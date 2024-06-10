@@ -50,6 +50,7 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         },
         ready: function(x, y) {
           debugger
+          Fliplet.Helper.field('action').set(y);
         }
       }
     ]
