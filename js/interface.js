@@ -44,7 +44,10 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         name: 'action',
         type: 'provider',
         label: 'Choose an action to do when the button is pressed',
-        package: 'com.fliplet.link'
+        package: 'com.fliplet.link',
+        onEvent: function(event, payload) {
+          debugger;
+        }
       }
     ]
   });
