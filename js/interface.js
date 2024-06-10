@@ -52,6 +52,10 @@ Fliplet.Widget.generateInterface({
       ready: function(x, y) {
         debugger;
         // Fliplet.Helper.field('action').set(y);
+      },
+      beforeReady: function(x, y) {
+        debugger;
+        // Fliplet.Helper.field('action').set(y);
       }
     }
   ]
