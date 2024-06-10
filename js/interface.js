@@ -50,10 +50,10 @@ Fliplet.Widget.generateInterface({
         debugger;
       },
       ready: function(x, y) {
-        debugger;
-        setTimeout(() => {
-          Fliplet.Helper.field('action').set(y);
-        }, 2000);
+        // debugger;
+        // setTimeout(() => {
+        //   Fliplet.Helper.field('action').set(y);
+        // }, 2000);
       },
       beforeReady: function(x, y) {
         debugger;
