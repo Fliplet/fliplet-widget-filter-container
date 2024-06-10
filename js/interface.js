@@ -46,7 +46,7 @@ Fliplet.Widget.generateInterface({
       type: 'provider',
       label: 'Choose an action to do when the button is pressed',
       package: 'com.fliplet.link',
-      data: {},
+      data: {action: "screen", page: "266", transition: "fade"},
       onEvent: function(event, payload) {
         debugger;
       },
