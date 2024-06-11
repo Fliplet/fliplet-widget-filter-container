@@ -46,7 +46,7 @@ Fliplet.Widget.generateInterface({
       type: 'provider',
       label: 'Choose an action to do when the button is pressed',
       package: 'com.fliplet.link',
-      data: {omitPages: [272]},
+      // data: {},
       onEvent: function(event, payload) {
         debugger;
       },
