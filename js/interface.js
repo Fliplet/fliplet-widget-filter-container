@@ -46,14 +46,14 @@ Fliplet.Widget.generateInterface({
       type: 'provider',
       label: 'Choose an action to do when the button is pressed',
       package: 'com.fliplet.link',
-      data: {},
+      // data: {},
       onEvent: function(event, payload) {
         debugger;
       },
       ready: function(x, y) {
         debugger;
         // setTimeout(() => {
-        Fliplet.Helper.field('action').set(y);
+        // Fliplet.Helper.field('action').set(y);
         // }, 2000);
       }
     }
