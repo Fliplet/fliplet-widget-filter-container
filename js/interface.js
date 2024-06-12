@@ -46,7 +46,13 @@ Fliplet.Widget.generateInterface({
       type: 'provider',
       label: 'Choose an action to do when the button is pressed',
       package: 'com.fliplet.link',
-      // data: {},
+      data: function(value) {
+        return _.assign({}, value, {
+          options: {
+            actionLabel: 'Click action'
+          }
+        });
+      },
       onEvent: function(event, payload) {
         debugger;
       },
