@@ -32,12 +32,12 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         options: [{ value: true, label: 'yes' }],
         default: [],
         change: function(value) {
-        // Fliplet.Helper.field('action').toggle(value.includes(true));
+          Fliplet.Helper.field('action').toggle(value.includes(true));
         },
         ready: function() {
-        // Fliplet.Helper.field('action').toggle(
-        //   Fliplet.Helper.field('isListOnDifferentScreen').get().includes(true)
-        // );
+          Fliplet.Helper.field('action').toggle(
+            Fliplet.Helper.field('isListOnDifferentScreen').get().includes(true)
+          );
         }
       },
       {
