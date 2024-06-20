@@ -7,15 +7,24 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
     htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Dynamic Container Settings on the LFD page</p>';
   } else {
     dynamicContainer = widgets[0];
-    dataSourceObj = await Fliplet.DataSources.getById(dynamicContainer && dynamicContainer.dataSourceId, {
-      attributes: ['name']
-    }).then(dataSource => {
-      return dataSource;
-    });
 
-    htmlToShow = `<p style="color: #A5A5A5; font-size: 12px; font-weight: 400;">List from ${dataSourceObj.name}(ID: <span class="data-source-id">${dynamicContainer.dataSourceId}</span>)</p>
-    <p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Data Container Settings</p>
-    <hr/>`;
+    if (dynamicContainer) {
+      if (dynamicContainer.dataSourceId) {
+        dataSourceObj = await Fliplet.DataSources.getById(dynamicContainer.dataSourceId, {
+          attributes: ['name']
+        }).then(dataSource => {
+          return dataSource;
+        });
+
+        htmlToShow = `<p style="color: #A5A5A5; font-size: 12px; font-weight: 400;">List from ${dataSourceObj.name}(ID: <span class="data-source-id">${dynamicContainer.dataSourceId}</span>)</p>
+        <p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Data Container Settings</p>
+        <hr/>`;
+      } else {
+        htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Dynamic Container Settings</p>';
+      }
+    } else {
+      htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">Dynamic Container component is required</p>';
+    }
   }
 
   return Fliplet.Widget.generateInterface({
