@@ -20,7 +20,7 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         <p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Data Container Settings</p>
         <hr/>`;
       } else {
-        htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">To change Data source go to Dynamic Container Settings</p>';
+        htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">Please select Data source from Dynamic Container Settings</p>';
       }
     } else {
       htmlToShow = '<p style="font-size: 10px; font-weight: 400; color: #E7961E;">Dynamic Container component is required</p>';
