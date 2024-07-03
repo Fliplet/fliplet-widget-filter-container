@@ -38,7 +38,7 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         name: 'isListOnDifferentScreen',
         type: 'checkbox',
         label: 'List is on the different screen than filter',
-        options: [{ value: true, label: 'yes' }],
+        options: [{ value: true, label: 'Yes' }],
         default: [],
         change: function(value) {
           Fliplet.Helper.field('action').toggle(value.includes(true));
@@ -53,6 +53,7 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         name: 'action',
         type: 'provider',
         label: 'Choose an action to do when the button is pressed',
+        description: 'Note, to apply your list filters you need to keep “Submit” form button.',
         package: 'com.fliplet.link',
         data: function(value) {
           return _.assign({}, value, {
