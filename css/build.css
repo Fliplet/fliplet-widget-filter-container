@@ -1,3 +1,7 @@
-fl-helper[name="filter-container"] {
-  /* add css here */
+.mode-interact fl-helper[name="filter-container"]::before {
+    content: 'Filter container';
+}
+
+.mode-interact fl-helper[name="filter-container"] {
+  border: 1px dotted orange;
 }
