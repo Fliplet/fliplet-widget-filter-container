@@ -37,7 +37,7 @@ Fliplet.Widget.instance({
           });
 
           if (!dynamicContainer || !dynamicContainer.dataSourceId) {
-            Fliplet.UI.Toast('Please add a Dynamic list component and a List repeater in it');
+            errorMessageStructureNotValid($(filterContainer.$el), 'Please add a Dynamic list component and a List repeater in it');
 
             return Promise.reject('');
           }
@@ -98,6 +98,11 @@ Fliplet.Widget.instance({
           return Promise.reject('');
         });
       });
+
+      function errorMessageStructureNotValid($element, message) {
+        $element.addClass('component-error-before');
+        Fliplet.UI.Toast(message);
+      }
     }
   },
   views: [
