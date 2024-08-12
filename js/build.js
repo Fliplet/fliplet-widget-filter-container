@@ -99,8 +99,9 @@ Fliplet.Widget.instance({
         });
       });
 
+      // TODO remove when product provides solution
       function errorMessageStructureNotValid($element, message) {
-        $element.addClass('component-error-before');
+        $element.addClass('component-error-before-xxx');
         Fliplet.UI.Toast(message);
       }
     }
