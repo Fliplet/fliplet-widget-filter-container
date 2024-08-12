@@ -110,7 +110,7 @@ Fliplet.Widget.instance({
     {
       name: 'content',
       displayName: 'Filter content',
-      placeholder: '<div class="well text-center">Configure filter and drag & drop form components to create filter</div>'
+      placeholder: '<div class="text-center">Configure filter and drag & drop form components to create filter</div>'
     }
   ]
 });
