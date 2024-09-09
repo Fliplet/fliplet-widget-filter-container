@@ -65,7 +65,7 @@ Fliplet.Widget.instance({
               case 'flRadio':
               case 'flSelect':
               case 'flTypeahead':
-                if (field.value && field.value.length) {
+                if (field.value.length) {
                   where[field.name] = { $in: field.value };
                 }
 
