@@ -92,7 +92,7 @@ Fliplet.Widget.instance({
 
             Fliplet.Navigate.screen(lfdPage.page, { query, transition: lfdPage.transition || 'fade' });
           } else {
-            lfdPage = Fliplet.Env.get('pageId');
+            lfdPage = Fliplet.Env.get('pageMasterId');
             Fliplet.App.Storage.set(lfdPage, where);
           }
 
