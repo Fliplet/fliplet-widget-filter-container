@@ -65,7 +65,10 @@ Fliplet.Widget.instance({
               case 'flRadio':
               case 'flSelect':
               case 'flTypeahead':
-                where[field.name] = { $in: field.value };
+                if (field.value.length) {
+                  where[field.name] = { $in: field.value };
+                }
+
                 break;
               case 'flDateRange':
               case 'flTimeRange':
@@ -89,7 +92,7 @@ Fliplet.Widget.instance({
 
             Fliplet.Navigate.screen(lfdPage.page, { query, transition: lfdPage.transition || 'fade' });
           } else {
-            lfdPage = Fliplet.Env.get('pageId');
+            lfdPage = Fliplet.Env.get('pageMasterId');
             Fliplet.App.Storage.set(lfdPage, where);
           }
 
@@ -98,13 +101,19 @@ Fliplet.Widget.instance({
           return Promise.reject('');
         });
       });
+
+      // TODO remove when product provides solution
+      function errorMessageStructureNotValid($element, message) {
+        $element.addClass('component-error-before-xxx');
+        Fliplet.UI.Toast(message);
+      }
     }
   },
   views: [
     {
       name: 'content',
       displayName: 'Filter content',
-      placeholder: '<div class="well text-center">Add form component to build your filters</div>'
+      placeholder: '<div class="text-center">Configure filter and drag & drop form components to create filter</div>'
     }
   ]
 });
