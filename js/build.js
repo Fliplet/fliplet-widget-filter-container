@@ -37,7 +37,7 @@ Fliplet.Widget.instance({
           });
 
           if (!dynamicContainer || !dynamicContainer.dataSourceId) {
-            errorMessageStructureNotValid($(filterContainer.$el), 'Please add a Dynamic list component and a List repeater in it');
+            Fliplet.UI.Toast('Please add a Data container component and a Data list in it');
 
             return Promise.reject('');
           }
