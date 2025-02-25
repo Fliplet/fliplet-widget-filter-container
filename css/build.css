@@ -1,0 +1,8 @@
+.mode-interact .view-is-empty {
+  border: none!important;
+  color: #6A6868!important;
+  font-size: 12px!important;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  padding: 0!important;
+}
