@@ -58,7 +58,7 @@ Fliplet.Widget.findParents({ filter: { package: 'com.fliplet.dynamic-container' 
         description: 'Note, to apply your list filters you need to keep “Submit” form button.',
         package: 'com.fliplet.link',
         data: function(value) {
-          return _.assign({}, value, {
+          return Fliplet.Utils.assign({}, value, {
             options: {
               actionLabel: 'Click action'
             }

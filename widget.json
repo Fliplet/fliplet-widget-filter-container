@@ -18,6 +18,7 @@
     "dependencies": [
       "fliplet-core",
       "fliplet-studio-ui",
+      "fliplet-utils",
       "fliplet-datasources"
     ],
     "assets": [
@@ -29,6 +30,7 @@
       "jquery",
       "bootstrap",
       "fliplet-core",
+      "fliplet-utils",
       "fliplet-helper"
     ],
     "assets": [
