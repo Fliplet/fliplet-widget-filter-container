@@ -7,7 +7,7 @@ Fliplet.Widget.instance({
       const filterContainer = this;
       const filterContainerInstanceId = filterContainer.id;
 
-      filterContainer.fields = _.assign(
+      filterContainer.fields = Fliplet.Utils.assign(
         {
           isListOnDifferentScreen: [true],
           action: { action: 'screen' }
